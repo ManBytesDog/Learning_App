@@ -28,35 +28,49 @@ function App() {
 
 const SAMPLE_CARDS = [
 {
-  id: 1,
-  question: '2 + 2',
-  answer: 4,
-  options: [
-    '4',
-    '3',
-    '1'
-  ]
+  "id": 8,
+  "subject_id": 20,
+  "question": "What is this color?",
+  "answer": "Red",
+  "image": "https://i2.wp.com/theteachingaunt.com/wp-content/uploads/2020/01/Colors-Flashcards-Free-Printables-RED.jpeg?resize=594%2C774&ssl=1"
 },
 {
-  id: 2,
-  question: '2 + 1',
-  answer: 3,
-  options: [
-    '4',
-    '3',
-    '1'
-  ]
-},
-{
-  id: 3,
-  question: '2 + 0',
-  answer:2,
-  options: [
-    '4',
-    '3',
-    '2'
-  ]
+  "id": 9,
+  "subject_id": 21,
+  "question": "2 + 2",
+  "answer": "4",
+  "image": ""
 }
+// {
+//   id: 1,
+//   question: '2 + 2',
+//   answer: 4,
+//   options: [
+//     '4',
+//     '3',
+//     '1'
+//   ]
+// },
+// {
+//   id: 2,
+//   question: '2 + 1',
+//   answer: 3,
+//   options: [
+//     '4',
+//     '3',
+//     '1'
+//   ]
+// },
+// {
+//   id: 3,
+//   question: '2 + 0',
+//   answer:2,
+//   options: [
+//     '4',
+//     '3',
+//     '2'
+//   ]
+// }
 ]
 
 export default App;

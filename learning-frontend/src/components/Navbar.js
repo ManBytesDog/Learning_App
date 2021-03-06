@@ -11,7 +11,7 @@ export default class Navbar extends Component {
         <>
             <form className="header" onSubmit={handleSubmit}>
             <div className="form-group"></div>
-                <label htmlForm="ages">Ages</label>
+                <label htmlform="ages">Ages</label>
                 <select id="ages" ></select>
             </form>
 

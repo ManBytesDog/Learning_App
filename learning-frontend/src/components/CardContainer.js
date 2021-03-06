@@ -6,7 +6,7 @@ function CardContainer({ cards }) {
     
     return (
         <div className="card-grid">
-            {cards.map(card => {
+            {cards.map(card => { 
                 return <CardFront card={card} key={card.id} />
             })}
 

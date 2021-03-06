@@ -32,7 +32,7 @@ const SAMPLE_CARDS = [
   "subject_id": 20,
   "question": "What is this color?",
   "answer": "Red",
-  "image": "https://i2.wp.com/theteachingaunt.com/wp-content/uploads/2020/01/Colors-Flashcards-Free-Printables-RED.jpeg?resize=594%2C774&ssl=1"
+  "image": "https://i.pinimg.com/564x/6b/81/52/6b815209f2b5f67eb1a693e32a64575a.jpg"
 },
 {
   "id": 9,
@@ -41,36 +41,6 @@ const SAMPLE_CARDS = [
   "answer": "4",
   "image": ""
 }
-// {
-//   id: 1,
-//   question: '2 + 2',
-//   answer: 4,
-//   options: [
-//     '4',
-//     '3',
-//     '1'
-//   ]
-// },
-// {
-//   id: 2,
-//   question: '2 + 1',
-//   answer: 3,
-//   options: [
-//     '4',
-//     '3',
-//     '1'
-//   ]
-// },
-// {
-//   id: 3,
-//   question: '2 + 0',
-//   answer:2,
-//   options: [
-//     '4',
-//     '3',
-//     '2'
-//   ]
-// }
 ]
 
 export default App;
@@ -93,7 +63,7 @@ export default App;
   //   fetch("http://localhost:3000/questions")
   //     .then(response => response.json())
   //     .then(questionData => this.setState({questions: questionData}))
-  //   }
+  // };
 
   // render() {
 

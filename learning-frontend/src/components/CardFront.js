@@ -12,6 +12,8 @@ function CardFront({card}) {
         >
             <div className="front">
                 {card.question}
+                <br/>
+                <br/>
                 <img className="image" src={card.image} />
                 {/* <div className="card-options"> */}
                 {/* shows each option as a list */}
@@ -20,7 +22,7 @@ function CardFront({card}) {
                     {/* })} */}
                 {/* </div> */}
             </div>
-            <div className="back"> {card.answer} </div>
+            <div className="back"> <h2>{card.answer}</h2> </div>
             {/* <h2>{cardFlip ? card.answer : card.question}</h2> */}
         </div>
         )

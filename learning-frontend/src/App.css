@@ -38,7 +38,9 @@
 }
 
 body {
-  background-color: #c8d0d2;
+  background-color: #179ec0;
+  background-image: url('https://i.pinimg.com/236x/78/d1/22/78d1220719f38e4a26401f0a53e20367.jpg');
+  margin: 0;
 }
 
 .card {

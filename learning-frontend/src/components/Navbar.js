@@ -16,7 +16,7 @@ export default class Navbar extends Component {
             </form>
 
             <div>
-            <h1>Navbar</h1>
+            <h1></h1>
                 
             </div>
         </>

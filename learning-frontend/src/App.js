@@ -7,42 +7,60 @@ import axios from 'axios'
 
 function App() {
 
-  const SAMPLE_CARDS = []
+  // const FLASH_CARDS = []
 
-  const [cards, setCards] = useState(SAMPLE_CARDS)
+  const [cards, setCards] = useState([])
 
-  useEffect(() => {
-    axios
-    .get('http://localhost:3000/questions')
-    .then(response => {
-      setCards(response.data.map((cardData, index) => {
-        return {
-          id: `${index}`,
-          subject_id: cardData.subject_id,
-          question: cardData.question,
-          answer: cardData.answer,
-          image: cardData.image
-        }
-      }))
-      console.log(response.data)
-    })
-  }, [])
+    useEffect(() => {
+      const getCards = async () => {
+        const cardsFromServer = await fetchCards()
+        setCards(cardsFromServer)
+      }
+
+      getCards()
+    }, [])
+
+    // Fetch Cards
+    const fetchCards = async () => {
+      const response = await fetch('http://localhost:3000/questions')
+      const cardData = response.json()
+
+      return cardData
+    }
+
+  // useEffect(() => {
+  //   axios
+  //   .get('http://localhost:3000/questions')
+  //   .then(response => {
+  //     setCards(response.data.map((cardData, index) => {
+  //       return {
+  //         id: `${index}`,
+  //         subject_id: cardData.subject_id,
+  //         question: cardData.question,
+  //         answer: cardData.answer,
+  //         image: cardData.image
+  //       }
+  //     }))
+  //     // console.log(response.data)
+  //   })
+  // }, [])
   
   return (
-    <div>
+   
+   <div>
       <div className="App">
     <header className="App-header">
     
     <Navbar />
     
     </header>
-      {/* <h1>App</h1> */}
-      
+    
+      <div className="container">
       <CardContainer cards={cards}/>
-      
+      </div>
       </div>
     </div>
-  )
+  );
 }
 export default App;
 // }

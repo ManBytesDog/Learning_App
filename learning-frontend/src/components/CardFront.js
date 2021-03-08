@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { FaTimes } from 'react-icons/fa'
 
-function CardFront({card}) {
+function CardFront({ card, onDelete }) {
     
     const [cardFlip, setCardFlip] = useState(false)
 
@@ -11,7 +12,7 @@ function CardFront({card}) {
         onClick={() => setCardFlip(!cardFlip)} 
         >
             <div className="front">
-                {card.question}
+                {card.question}  <FaTimes style={{ color: 'red', cursor: 'pointer'}} onClick={() => onDelete(card.id)} />
                 <br/>
                 <br/>
                 <img className="image" src={card.image} />

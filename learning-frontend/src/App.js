@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar'
 import CardContainer from './components/CardContainer'
-import axios from 'axios'
+import AddCard from './components/AddCard'
+// import axios from 'axios'
 
 
 function App() {
 
   // const FLASH_CARDS = []
+  const[showAddCard, setShowAddCard] = useState(false)
 
   const [cards, setCards] = useState([])
 
@@ -44,6 +46,18 @@ function App() {
   //     // console.log(response.data)
   //   })
   // }, [])
+
+  //Add Card
+  const addCard = (card) =>{
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newCard = { id, ...card }
+    setCards([...cards, newCard])
+  }
+
+  // Delete Card
+  const deleteCard = (id) => {
+    setCards(cards.filter((card) => card.id !== id))
+  }
   
   return (
    
@@ -51,12 +65,13 @@ function App() {
       <div className="App">
     <header className="App-header">
     
-    <Navbar />
+    <Navbar onMakeCard={() => setShowAddCard(!showAddCard)}/>
+    {showAddCard && <AddCard onAddCard={addCard} />}
     
     </header>
     
       <div className="container">
-      <CardContainer cards={cards}/>
+      {cards.length > 0 ? <CardContainer cards={cards} onDelete={deleteCard} /> : <h1>You Did It! Make More Cards!</h1>}
       </div>
       </div>
     </div>

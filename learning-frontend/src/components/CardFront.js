@@ -15,7 +15,7 @@ function CardFront({ card, onDelete }) {
                 {card.question}  <FaTimes style={{ color: 'red', cursor: 'pointer'}} onClick={() => onDelete(card.id)} />
                 <br/>
                 <br/>
-                <img className="image" src={card.image} />
+                <img className="image" src={card.image} alt='' />
                 {/* <div className="card-options"> */}
                 {/* shows each option as a list */}
                     {/* {card.options.map(option => {

@@ -30,6 +30,14 @@ function App() {
       return cardData
     }
 
+    //Update Card
+    const fetchCard = async (id) => {
+      const response = await fetch(`http://localhost:3000/questions/${id}`)
+      const cardData = response.json()
+
+      return cardData
+    }
+
   // useEffect(() => {
   //   axios
   //   .get('http://localhost:3000/questions')
@@ -48,14 +56,32 @@ function App() {
   // }, [])
 
   //Add Card
-  const addCard = (card) =>{
-    const id = Math.floor(Math.random() * 10000) + 1
-    const newCard = { id, ...card }
+  const addCard = async (card) =>{
+    const response = await fetch('http://localhost:3000/questions', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(card),
+      
+    })
+
+    const newCard = await response.json()
+    console.log(card)
     setCards([...cards, newCard])
+
+
+    // const id = Math.floor(Math.random() * 10000) + 1
+    // const newCard = { id, ...card }
+    // setCards([...cards, newCard])
   }
 
   // Delete Card
-  const deleteCard = (id) => {
+  const deleteCard = async (id) => {
+    await fetch(`http://localhost:3000/questions/${id}`, {
+      method: 'DELETE'
+    })
+
     setCards(cards.filter((card) => card.id !== id))
   }
   

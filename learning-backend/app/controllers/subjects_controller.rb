@@ -4,5 +4,6 @@ class SubjectsController < ApplicationController
         subjects = Subject.all
         render json: subjects, except:[:created_at, :updated_at]
     end
+    
 
 end

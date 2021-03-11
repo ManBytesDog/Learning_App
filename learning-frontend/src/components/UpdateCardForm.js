@@ -1,26 +1,47 @@
 import React from 'react'
 import { useState } from 'react'
 
-function AddCard({ onAddCard }) {
+function UpdateCardForm({ id }) {
     const [question, setQuestion] = useState('')
     const [image, setImage] = useState('')
     const [answer, setAnswer] = useState('')
 
+    
     const onSubmit = (e) => {
         e.preventDefault()
-
+        
+        fetch(`http://localhost:3000/questions/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({question, image, answer})
+        })
         
         if(!question) {
             alert('Please add a question')
             return 
         }
         
-        onAddCard({ question, image, answer })
-        
+    //Update Card
+    // const updCard = async (id) => {
+
+    //     const response = await fetch(`http://localhost:3000/questions/${id}`)
+    //     const cardData = response.json()
+  
+    //     return cardData
+    //   }
+            
+
         setQuestion('')
         setImage('')
         setAnswer('')
     }
+
+    // const  updateCard = async (id) => {
+    //     const cardToUpdate = await fetchCard(id)
+    //     const updatedCard = {...cardToUpdate, }
+    // }
 
     return (
         <form className='add-form' onSubmit={onSubmit} >
@@ -42,9 +63,9 @@ function AddCard({ onAddCard }) {
                     
             </div>
 
-            <input type='submit' value='Create Card' className='btn btn-block'/>
+            <input type='submit' value='Edit Card' className='btn btn-block'/>
         </form>
     )
 };
 
-export default AddCard;
+export default UpdateCardForm;

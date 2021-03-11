@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
-import { FaTimes } from 'react-icons/fa'
+import UpdateCardForm from './UpdateCardForm'
+import { FaTimes } from 'react-icons/fa';
+import {FaEdit} from 'react-icons/fa'
 
-function CardFront({ card, onDelete }) {
+function CardFront({ card, deleteCard, updateCard }) {
     
     const [cardFlip, setCardFlip] = useState(false)
+
+    const[showUpdateCard, setShowUpdateCard] = useState(false)
 
 
     return (
         <div 
         className={`card ${cardFlip ? 'cardFlip' : ''}`}
-        onClick={() => setCardFlip(!cardFlip)} 
+       
         >
             <div className="front">
-                {card.question}  <FaTimes style={{ color: 'red', cursor: 'pointer'}} onClick={() => onDelete(card.id)} />
+                
+                <FaTimes style={{ color: 'red', cursor: 'pointer'}} onClick={() => deleteCard(card.id)} />
+                {card.question}  <FaEdit style={{cursor: 'pointer'}} onClick={(e) => setShowUpdateCard(!showUpdateCard)}/>
                 <br/>
                 <br/>
-                <img className="image" src={card.image} alt='' />
+                { showUpdateCard ? <UpdateCardForm id={card.id}/> : <img  onClick={() => setCardFlip(!cardFlip)}  className="image" src={card.image} alt='' />}
                 {/* <div className="card-options"> */}
                 {/* shows each option as a list */}
                     {/* {card.options.map(option => {
@@ -23,7 +29,7 @@ function CardFront({ card, onDelete }) {
                     {/* })} */}
                 {/* </div> */}
             </div>
-            <div className="back"> <h2>{card.answer}</h2> </div>
+            <div className="back">  <h2 onClick={() => setCardFlip(!cardFlip)}>{card.answer}</h2> </div>
             {/* <h2>{cardFlip ? card.answer : card.question}</h2> */}
         </div>
         )
